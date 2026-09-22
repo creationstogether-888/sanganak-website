@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SANGANAK</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">SANGANAK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="training.html">Courses</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="contact-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have questions? We're here to help!</p>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:info@sanganak.co.uk">info@sanganak.co.uk</a></p>
+                </div>
+                <div class="info-card">
+                    <h3>📱 Phone</h3>
+                    <p>Available by request after booking</p>
+                </div>
+                <div class="info-card">
+                    <h3>⏰ Response Time</h3>
+                    <p>Usually within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <h2>Send us a Message</h2>
+            <p class="form-intro">Fill out the form below and we'll get back to you as soon as possible</p>
+
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="General Enquiry">General Enquiry</option>
+                        <option value="Booking Question">Booking Question</option>
+                        <option value="Course Information">Course Information</option>
+                        <option value="Complaint">Complaint</option>
+                        <option value="Partnership Opportunity">Partnership Opportunity</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">I agree to SANGANAK's privacy policy</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SANGANAK</h4>
+                    <p>Expert tuition and IT training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="training.html">Courses</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@sanganak.co.uk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SANGANAK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

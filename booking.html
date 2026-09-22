@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trial - SANGANAK</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">SANGANAK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="training.html">Courses</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Booking Header -->
+    <section class="booking-header">
+        <div class="container">
+            <h1>Book Your Free Trial Session</h1>
+            <p>Choose your subject and time slot below</p>
+        </div>
+    </section>
+
+    <!-- Subject Selection -->
+    <section class="booking-subjects">
+        <div class="container">
+            <h2>Step 1: Select Your Subject</h2>
+            <div class="subjects-grid">
+                <div class="subject-card" data-subject="Maths">
+                    <h3>Maths</h3>
+                    <p>Years 5-9, GCSE, A-Level</p>
+                </div>
+                <div class="subject-card" data-subject="Science">
+                    <h3>Science</h3>
+                    <p>Physics, Chemistry, Biology</p>
+                </div>
+                <div class="subject-card" data-subject="English">
+                    <h3>English</h3>
+                    <p>Literature & Language</p>
+                </div>
+                <div class="subject-card" data-subject="Computer Science">
+                    <h3>Computer Science</h3>
+                    <p>GCSE & A-Level</p>
+                </div>
+                <div class="subject-card" data-subject="Python">
+                    <h3>Python Programming</h3>
+                    <p>Beginner to Advanced</p>
+                </div>
+                <div class="subject-card" data-subject="IT Training">
+                    <h3>IT Training</h3>
+                    <p>Power BI, SQL, Cloud</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-form-section">
+        <div class="container">
+            <h2>Step 2: Book Your Session</h2>
+            <p class="info-text">Fill in your details and we'll confirm your booking</p>
+
+            <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="subject" id="selected-subject" value="">
+
+                <div class="form-group">
+                    <label for="name">Your Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age/Year Group</label>
+                    <select id="age" name="age">
+                        <option value="">Select your year</option>
+                        <option value="Year 5">Year 5</option>
+                        <option value="Year 6">Year 6</option>
+                        <option value="Year 7">Year 7</option>
+                        <option value="Year 8">Year 8</option>
+                        <option value="Year 9">Year 9</option>
+                        <option value="Year 10 (GCSE)">Year 10 (GCSE)</option>
+                        <option value="Year 11 (GCSE)">Year 11 (GCSE)</option>
+                        <option value="Year 12 (A-Level)">Year 12 (A-Level)</option>
+                        <option value="Year 13 (A-Level)">Year 13 (A-Level)</option>
+                        <option value="University">University</option>
+                        <option value="Professional">Professional</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preferred-date">Preferred Date</label>
+                    <input type="date" id="preferred-date" name="preferred-date">
+                </div>
+
+                <div class="form-group">
+                    <label for="preferred-time">Preferred Time</label>
+                    <select id="preferred-time" name="preferred-time">
+                        <option value="">Select time</option>
+                        <option value="Morning (9AM-12PM)">Morning (9AM-12PM)</option>
+                        <option value="Afternoon (12PM-5PM)">Afternoon (12PM-5PM)</option>
+                        <option value="Evening (5PM-8PM)">Evening (5PM-8PM)</option>
+                        <option value="Flexible">Flexible</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your goals (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="What do you hope to achieve?"></textarea>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to receive updates about my booking</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Alternative: Calendly Embed (Uncomment to use instead of form) -->
+    <!--
+    <section class="calendly-section">
+        <div class="container">
+            <h2>Step 2: Choose Your Time Slot</h2>
+            <div class="calendly-embed">
+                <iframe src="https://calendly.com/your-calendly-link" width="100%" height="600" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Is the first session really free?</h3>
+                    <p>Yes! Your first 20-minute session is completely free. We use this time to understand your needs and create a personalized learning plan.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long are sessions?</h3>
+                    <p>Standard sessions are 1 hour. We can arrange longer or shorter sessions based on your needs.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I cancel or reschedule?</h3>
+                    <p>Yes! We offer flexible scheduling. You can reschedule with 24 hours notice.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer online tutoring?</h3>
+                    <p>Yes! We offer both online and in-person sessions. Choose what works best for you.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's your cancellation policy?</h3>
+                    <p>Cancel anytime, no long-term contracts. Cancellations within 48 hours of a session may incur a charge.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I pay?</h3>
+                    <p>We accept card payments (Visa, Mastercard, Amex) and bank transfers. Payment is due on or before your first session.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Questions? Get in Touch!</h2>
+            <p>Have any questions about booking? Contact us anytime</p>
+            <a href="contact.html" class="btn btn-secondary">Send us a message</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SANGANAK</h4>
+                    <p>Expert tuition and IT training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="training.html">Courses</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@sanganak.co.uk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SANGANAK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
