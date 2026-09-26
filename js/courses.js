@@ -893,23 +893,49 @@ function initCourseDetail() {
             : '');
 }
 
-// booking.html?course=... pre-selects the chosen course
+// booking.html: course picker (IT Training first), optionally pre-selected by ?course=
 function initBookingPrefill() {
     const banner = document.getElementById('course-banner');
+    const picker = document.getElementById('course-picker');
     const subjectInput = document.getElementById('selected-subject');
     const courseInput = document.getElementById('selected-course');
-    if (!banner || !subjectInput) return;
+    if (!picker || !subjectInput) return;
 
-    const c = findCourse(new URLSearchParams(location.search).get('course'));
-    if (!c) return;
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = 'Select a course';
+    picker.appendChild(placeholder);
 
-    const label = LEVELS[c.level].label + ' ' + c.title;
-    subjectInput.value = label;
-    if (courseInput) courseInput.value = c.id;
+    Object.keys(LEVELS).forEach(key => {
+        const group = document.createElement('optgroup');
+        group.label = LEVELS[key].label;
+        COURSES.filter(c => c.level === key).forEach(c => {
+            const o = document.createElement('option');
+            o.value = c.id;
+            o.textContent = c.title;
+            group.appendChild(o);
+        });
+        picker.appendChild(group);
+    });
 
-    banner.hidden = false;
-    banner.innerHTML = 'You are booking: <strong></strong> <a href="training.html#' + c.level + '">Change course</a>';
-    banner.querySelector('strong').textContent = label;
+    function apply(id) {
+        const c = findCourse(id);
+        const label = c ? LEVELS[c.level].label + ' ' + c.title : '';
+        subjectInput.value = label;
+        if (courseInput) courseInput.value = c ? c.id : '';
+        if (banner) {
+            banner.hidden = !c;
+            banner.textContent = c ? 'You are booking: ' + label : '';
+        }
+    }
+
+    picker.addEventListener('change', () => apply(picker.value));
+
+    const preset = new URLSearchParams(location.search).get('course');
+    if (findCourse(preset)) {
+        picker.value = preset;
+        apply(preset);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

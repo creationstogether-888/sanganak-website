@@ -8,7 +8,6 @@ A modern, responsive static website for SANGANAK tuition and IT training service
 - ✅ **Course Showcase** - Display all courses and training programs
 - ✅ **Booking System** - Contact forms for enquiries
 - ✅ **Testimonials** - Student reviews and success stories
-- ✅ **Pricing Display** - Transparent pricing tiers
 - ✅ **SEO Friendly** - Optimized for search engines
 - ✅ **Fast Performance** - Pure HTML/CSS/JavaScript (no heavy frameworks)
 - ✅ **Easy Deployment** - Deploy to GitHub Pages, Netlify, or Vercel

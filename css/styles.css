@@ -1897,3 +1897,34 @@ section.alternate,
         display: none;
     }
 }
+
+.course-select {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.course-select label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.course-select select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: white;
+}
+
+.course-select select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
