@@ -1354,7 +1354,7 @@ a.course-card {
     --teal-300: #5eead4;
     --teal-50: #f0fdfa;
     --glow-teal: rgba(45, 212, 191, 0.55);
-    --glow-blue: rgba(125, 190, 255, 0.55);
+    --glow-blue: rgba(59, 130, 246, 0.5);
 }
 
 /* Navigation */
@@ -1438,7 +1438,7 @@ a.course-card {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background: linear-gradient(120deg, #3b82f6, #2b9fd8, #14b8a6, #2dd4bf, #38a3f0, #3b82f6);
+    background: linear-gradient(120deg, var(--blue-950), var(--blue-600), var(--teal-700), var(--teal-500), var(--blue-600), var(--blue-950));
     background-size: 300% 300%;
     animation: gradient-flow 20s ease-in-out infinite;
 }
