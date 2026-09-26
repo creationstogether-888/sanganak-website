@@ -1340,3 +1340,314 @@ a.course-card {
         align-items: flex-start;
     }
 }
+
+/* ===== LIVE THEME: teal and blue shades, glow, CSS-only motion ===== */
+:root {
+    --blue-950: #0a1a44;
+    --blue-800: #1e3a8a;
+    --blue-600: #2563eb;
+    --blue-400: #60a5fa;
+    --blue-100: #dbeafe;
+    --teal-900: #134e4a;
+    --teal-700: #0f766e;
+    --teal-500: #14b8a6;
+    --teal-300: #5eead4;
+    --teal-50: #f0fdfa;
+    --glow-teal: rgba(45, 212, 191, 0.55);
+    --glow-blue: rgba(59, 130, 246, 0.5);
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(90deg, var(--blue-950), var(--blue-800) 45%, var(--teal-700));
+    box-shadow: 0 6px 24px -6px var(--glow-teal);
+    border-bottom: 1px solid rgba(94, 234, 212, 0.35);
+}
+
+.navbar .container {
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    text-shadow: 0 0 14px var(--glow-teal);
+}
+
+.nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px 18px;
+}
+
+.nav-links a {
+    font-size: 15px;
+    padding: 6px 2px;
+    position: relative;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    text-shadow: 0 0 12px var(--teal-300);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--teal-300), var(--blue-400));
+    box-shadow: 0 0 10px var(--teal-300);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-tab a {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(94, 234, 212, 0.3);
+    transition: background 0.25s, box-shadow 0.25s;
+}
+
+.nav-tab a::after {
+    display: none;
+}
+
+.nav-tab a:hover {
+    background: rgba(20, 184, 166, 0.35);
+    box-shadow: 0 0 16px var(--glow-teal);
+}
+
+/* Animated gradient banners with floating glow orbs */
+.hero,
+.training-header,
+.booking-header,
+.contact-header,
+.about-header,
+.course-hero,
+.stats,
+.cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(120deg, var(--blue-950), var(--blue-600), var(--teal-700), var(--teal-500), var(--blue-600), var(--blue-950));
+    background-size: 300% 300%;
+    animation: gradient-flow 20s ease-in-out infinite;
+}
+
+.hero::before,
+.training-header::before,
+.booking-header::before,
+.contact-header::before,
+.about-header::before,
+.course-hero::before,
+.stats::before,
+.cta::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    right: -80px;
+    top: -140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow-teal), transparent 68%);
+    filter: blur(20px);
+    animation: orb-float 11s ease-in-out infinite;
+}
+
+.hero::after,
+.training-header::after,
+.booking-header::after,
+.contact-header::after,
+.about-header::after,
+.course-hero::after,
+.stats::after,
+.cta::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 380px;
+    height: 380px;
+    left: -100px;
+    bottom: -160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow-blue), transparent 68%);
+    filter: blur(24px);
+    animation: orb-float 14s ease-in-out infinite reverse;
+}
+
+.hero h1,
+.training-header h1,
+.course-hero h1,
+.cta h2 {
+    text-shadow: 0 0 28px rgba(94, 234, 212, 0.45);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--teal-500), #10b981);
+    box-shadow: 0 0 0 0 var(--glow-teal);
+    animation: glow-pulse 2.8s ease-in-out infinite;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--teal-300), var(--teal-500));
+    color: var(--blue-950);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-800));
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+    box-shadow: 0 0 18px var(--glow-blue);
+}
+
+/* Cards: glow on hover */
+.course-card:hover,
+.course-tile:hover,
+.start-card:hover,
+.pricing-card:hover,
+.role-card:hover,
+.faq-item:hover,
+.reason:hover,
+.mission-card:hover,
+.testimonial:hover,
+.course-detail:hover {
+    border-color: var(--teal-500);
+    box-shadow: 0 0 0 1px var(--teal-500), 0 14px 34px -8px var(--glow-teal);
+}
+
+.course-card,
+.course-tile,
+.role-card,
+.faq-item,
+.reason,
+.mission-card,
+.testimonial {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing-card.featured {
+    background: linear-gradient(160deg, var(--teal-50), var(--blue-100));
+    animation: glow-ring 3.2s ease-in-out infinite;
+}
+
+.popular-badge {
+    background: linear-gradient(90deg, var(--teal-700), var(--blue-600));
+    box-shadow: 0 0 14px var(--glow-teal);
+}
+
+/* Floating icons */
+.course-icon,
+.feature-icon,
+.tile-icon {
+    display: inline-block;
+    animation: bob 4s ease-in-out infinite;
+}
+
+.features-grid .feature:nth-child(even) .feature-icon,
+.courses-grid .course-card:nth-child(even) .course-icon {
+    animation-delay: -2s;
+}
+
+/* Tabs */
+.tab-btn:hover,
+.tab-btn.active {
+    color: var(--blue-600);
+    border-bottom-color: var(--teal-500);
+    text-shadow: 0 0 14px rgba(20, 184, 166, 0.5);
+}
+
+.tab-buttons {
+    border-bottom-color: var(--blue-100);
+}
+
+/* Soft tinted sections */
+section.alternate,
+.support-services {
+    background: linear-gradient(180deg, var(--teal-50), #eff6ff);
+}
+
+.step-num {
+    background: linear-gradient(135deg, var(--blue-600), var(--teal-500));
+    box-shadow: 0 0 18px var(--glow-teal);
+}
+
+.syllabus li::before {
+    color: var(--teal-500);
+}
+
+.eyebrow {
+    box-shadow: 0 0 16px rgba(94, 234, 212, 0.35);
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    background: linear-gradient(180deg, var(--blue-950), #06122e);
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal-300), var(--blue-400), transparent);
+    box-shadow: 0 0 16px var(--teal-300);
+}
+
+/* Keyframes */
+@keyframes gradient-flow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, 30px) scale(1.12); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.55); }
+    50% { box-shadow: 0 0 22px 6px rgba(45, 212, 191, 0.35); }
+}
+
+@keyframes glow-ring {
+    0%, 100% { box-shadow: 0 0 0 1px var(--teal-500), 0 8px 24px -8px var(--glow-teal); }
+    50% { box-shadow: 0 0 0 1px var(--teal-500), 0 12px 38px -4px var(--glow-teal); }
+}
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+.courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
