@@ -4,14 +4,14 @@ const LEVELS = {
     it: {
         label: 'IT Training',
         tab: 'IT Training',
-        intro: 'Job-ready technical skills, taught through practical projects with an expert one-to-one.',
+        intro: 'Professional IT, data, cloud and systems training, taught one-to-one through practical, project-based sessions.',
         audience: 'Career changers, graduates and working professionals',
         style: 'Project-based, at your pace'
     },
     gcse: {
         label: 'GCSE',
         tab: 'GCSE',
-        intro: 'Exam-focused tuition for Years 10 and 11: topic mastery, past papers and technique for top grades.',
+        intro: 'Exam-focused tuition for Years 10 and 11 across AQA, OCR and Edexcel: topic mastery, required practicals and exam technique.',
         audience: 'Students in Years 10 and 11',
         style: 'Exam-board aligned'
     },
@@ -28,105 +28,721 @@ const LEVELS = {
         intro: 'Confidence-building lessons in the core subjects, so the foundations are solid before GCSE.',
         audience: 'Students in Years 5 to 9',
         style: 'National Curriculum aligned'
+    },
+    cbse: {
+        label: 'CBSE',
+        tab: 'CBSE',
+        intro: 'Board-exam preparation for CBSE Class 11 and 12 Computer Science and Informatics Practices, including practical file support.',
+        audience: 'Students in Class 11 and 12 (CBSE)',
+        style: 'CBSE syllabus aligned'
     }
 };
 
 const COURSES = [
-    // IT Training
-    { id: 'python', level: 'it', icon: '🐍', title: 'Python Programming',
-      blurb: 'From core fundamentals to scripting, data work and small web apps.',
-      syllabus: ['Python fundamentals', 'Object-oriented programming', 'Data analysis with Pandas', 'Web frameworks (Django, Flask)', 'Machine learning basics', 'Real-world projects'],
-      outcomes: ['Write clean, working Python programs', 'Automate everyday tasks and analyse data', 'Finish with portfolio projects you can show employers'] },
-    { id: 'sql', level: 'it', icon: '💾', title: 'SQL & Database Management',
-      blurb: 'Learn to query, design and manage the databases behind real businesses.',
-      syllabus: ['SQL fundamentals', 'Database design', 'Queries and optimisation', 'Stored procedures', 'MySQL and PostgreSQL', 'Data warehousing'],
-      outcomes: ['Write confident queries across multiple tables', 'Design a sensible database schema', 'Speed up slow queries'] },
-    { id: 'powerbi', level: 'it', icon: '📊', title: 'Power BI',
-      blurb: 'Turn raw data into dashboards and reports that people actually use.',
-      syllabus: ['Power BI basics', 'Data visualisation', 'DAX formulas', 'Creating dashboards', 'Real-time analytics', 'Report publishing'],
-      outcomes: ['Build interactive dashboards from scratch', 'Write DAX measures for real questions', 'Publish and share reports'] },
-    { id: 'cloud', level: 'it', icon: '☁️', title: 'Cloud Computing',
-      blurb: 'Understand cloud architecture, deployment and security from the ground up.',
-      syllabus: ['AWS or Azure basics', 'Cloud architecture', 'Virtual machines and storage', 'Databases in the cloud', 'Security and compliance', 'Cost optimisation'],
-      outcomes: ['Explain how cloud services fit together', 'Deploy and secure a simple cloud setup', 'Keep cloud costs under control'] },
-    { id: 'data-analysis', level: 'it', icon: '📈', title: 'Data Analysis',
-      blurb: 'Collect, clean and analyse data, then explain what it means.',
-      syllabus: ['Data collection and cleaning', 'Statistical analysis', 'Advanced Excel', 'Python for data science', 'Data visualisation', 'Business intelligence'],
-      outcomes: ['Clean messy data quickly', 'Choose the right analysis for the question', 'Present findings clearly to non-experts'] },
-    { id: 'web-dev', level: 'it', icon: '🌐', title: 'Web Development',
-      blurb: 'Build and launch real websites, front end to back end.',
-      syllabus: ['HTML, CSS, JavaScript', 'Frontend frameworks', 'Backend development', 'Database integration', 'Deployment and DevOps', 'Portfolio projects'],
-      outcomes: ['Build responsive websites', 'Connect a front end to a database', 'Deploy a live project'] },
-
-    // GCSE
-    { id: 'gcse-cs', level: 'gcse', icon: '💻', title: 'Computer Science',
-      blurb: 'Algorithms, programming, networks and the logic behind the machine.',
-      syllabus: ['Programming fundamentals (Python and more)', 'Data representation', 'Networks and cybersecurity', 'Hardware and software', 'Algorithms and logic', 'Exam practice and coding projects'],
-      outcomes: ['Write and trace programs under exam conditions', 'Explain how computers store and move data', 'Approach the coding project with confidence'] },
-    { id: 'gcse-biology', level: 'gcse', icon: '🧪', title: 'Biology',
-      blurb: 'Cells, genetics, ecology and the human body, with plenty of exam practice.',
-      syllabus: ['Cell biology and transport', 'Genetics and inheritance', 'Evolution and natural selection', 'Ecology and ecosystems', 'Organ systems', 'Exam technique and revision'],
-      outcomes: ['Recall key content accurately', 'Handle required practicals and data questions', 'Write full-mark extended answers'] },
-    { id: 'gcse-chemistry', level: 'gcse', icon: '⚛️', title: 'Chemistry',
-      blurb: 'Atoms, bonding, reactions and calculations made clear.',
-      syllabus: ['Atomic structure and bonding', 'Chemical reactions', 'Periodic table properties', 'Organic chemistry', 'Thermochemistry', 'Quantitative analysis'],
-      outcomes: ['Balance equations and do chemical calculations', 'Link structure to properties', 'Answer multi-step exam questions'] },
-    { id: 'gcse-physics', level: 'gcse', icon: '⚡', title: 'Physics',
-      blurb: 'Forces, energy, waves and electricity, from equations to explanations.',
-      syllabus: ['Forces and motion', 'Energy transfers', 'Waves and sound', 'Electricity and magnetism', 'Particle model', 'Nuclear physics'],
-      outcomes: ['Rearrange and apply key equations', 'Explain concepts in exam language', 'Tackle practical and graph questions'] },
-    { id: 'gcse-maths', level: 'gcse', icon: '🔢', title: 'Maths',
-      blurb: 'Foundation and Higher tier algebra, geometry and problem solving.',
-      syllabus: ['Algebra and equations', 'Functions and graphs', 'Trigonometry', 'Statistics and probability', 'Geometry', 'Problem-solving'],
-      outcomes: ['Fill gaps from earlier years', 'Work faster and more accurately', 'Handle unfamiliar problem-solving questions'] },
-    { id: 'gcse-english', level: 'gcse', icon: '📝', title: 'English',
-      blurb: 'Language analysis, literature texts and essays that hit the mark scheme.',
-      syllabus: ['Poetry analysis', 'Prose and drama', 'Language techniques', 'Essay structure', 'Reading comprehension', 'Spoken language'],
-      outcomes: ['Plan and write structured essays', 'Analyse language and structure with evidence', 'Manage time across both papers'] },
-
-    // A-Level
-    { id: 'alevel-cs', level: 'alevel', icon: '💻', title: 'Computer Science',
-      blurb: 'Advanced programming, theory and the coursework project.',
-      syllabus: ['Programming (Python, Java)', 'Data structures and algorithms', 'Software engineering', 'Networks and security', 'Artificial intelligence', 'Project development'],
-      outcomes: ['Implement and analyse core algorithms', 'Understand theory topics deeply', 'Plan and deliver the coursework project'] },
-    { id: 'alevel-it', level: 'alevel', icon: '🖥️', title: 'Information Technology',
-      blurb: 'Practical IT skills, data, systems and project work.',
-      syllabus: ['Information systems and data', 'Databases and spreadsheets', 'Networks and communications', 'Cybersecurity and legislation', 'Project planning and delivery', 'Exam technique'],
-      outcomes: ['Apply IT concepts to real scenarios', 'Produce well-documented project work', 'Answer scenario-based exam questions'] },
-    { id: 'alevel-maths', level: 'alevel', icon: '🧮', title: 'Maths',
-      blurb: 'Pure, statistics and mechanics, with a focus on university readiness.',
-      syllabus: ['Pure mathematics', 'Calculus (differentiation and integration)', 'Complex numbers', 'Statistics and probability', 'Mechanics', 'University preparation'],
-      outcomes: ['Master calculus and algebraic technique', 'Model real situations with statistics and mechanics', 'Build fluency for university-level maths'] },
-    { id: 'alevel-further-maths', level: 'alevel', icon: '➕', title: 'Further Maths',
-      blurb: 'Advanced pure maths, matrices and proof for the strongest mathematicians.',
-      syllabus: ['Advanced pure mathematics', 'Linear algebra', 'Vectors and matrices', 'Differential equations', 'Complex analysis', 'Proof techniques'],
-      outcomes: ['Work comfortably with abstract methods', 'Construct and follow rigorous proofs', 'Prepare for maths, engineering and physics degrees'] },
-    { id: 'alevel-biology', level: 'alevel', icon: '🧬', title: 'Biology',
-      blurb: 'Molecular biology, physiology and ecology with practical endorsement support.',
-      syllabus: ['Molecular biology', 'Cell structure and function', 'Genetics and evolution', 'Ecology', 'Physiology', 'Practical investigations'],
-      outcomes: ['Explain complex processes step by step', 'Analyse data and design investigations', 'Write high-scoring essay answers'] },
-    { id: 'alevel-chemistry', level: 'alevel', icon: '⚗️', title: 'Chemistry',
-      blurb: 'Physical, organic and inorganic chemistry, with mechanisms that finally make sense.',
-      syllabus: ['Atomic structure', 'Bonding and structure', 'Kinetics and equilibrium', 'Organic chemistry', 'Thermodynamics', 'Redox reactions'],
-      outcomes: ['Master organic mechanisms and synthesis routes', 'Handle equilibrium and kinetics calculations', 'Approach practical-based questions confidently'] },
-    { id: 'alevel-physics', level: 'alevel', icon: '🔭', title: 'Physics',
-      blurb: 'Mechanics to modern physics, with worked problems and clear explanations.',
-      syllabus: ['Mechanics', 'Waves and oscillations', 'Electricity and magnetism', 'Thermal physics', 'Modern physics', 'Nuclear physics'],
-      outcomes: ['Solve multi-step quantitative problems', 'Link concepts across topics', 'Write precise explanations for long-answer questions'] },
-
-    // Years 5-9
-    { id: 'y59-maths', level: 'y59', icon: '➗', title: 'Maths',
-      blurb: 'Number, algebra and reasoning, taught so it clicks.',
-      syllabus: ['Number systems and operations', 'Algebraic expressions and equations', 'Functions and graphs', 'Geometry and trigonometry', 'Data handling and probability', 'Problem-solving techniques'],
-      outcomes: ['Build fast, accurate arithmetic', 'Get comfortable with early algebra', 'Grow confidence ahead of GCSE'] },
-    { id: 'y59-science', level: 'y59', icon: '🔬', title: 'Science',
-      blurb: 'Biology, chemistry and physics through clear explanations and examples.',
-      syllabus: ['Cell structure and function', 'Chemical reactions', 'Forces and motion', 'Energy and heat', 'Waves and sound', 'Atoms and elements'],
-      outcomes: ['Understand the big ideas in each science', 'Get used to scientific vocabulary and method', 'Stay ahead in class'] },
-    { id: 'y59-english', level: 'y59', icon: '📖', title: 'English',
-      blurb: 'Reading, writing and speaking skills that carry into every subject.',
-      syllabus: ['Reading comprehension', 'Creative writing', 'Grammar and punctuation', 'Poetry analysis', 'Spoken English', 'Essay writing'],
-      outcomes: ['Read closely and respond with evidence', 'Write with clarity and variety', 'Speak with more confidence'] }
+    {
+        "id": "it-ai-data-engineering-analyst",
+        "level": "it",
+        "icon": "🧠",
+        "title": "AI - Data Engineering Analyst",
+        "blurb": "Data pipelines, ETL processes, database management, data quality, and visualization for business intelligence.",
+        "syllabus": [
+            "Data pipeline design and ETL fundamentals",
+            "Extracting, transforming and loading data from multiple sources",
+            "Database design and management for analytics",
+            "Data quality checks and validation",
+            "Data visualisation for business intelligence",
+            "Automating recurring data workflows",
+            "Working with structured and unstructured data",
+            "Introduction to AI-assisted data analysis"
+        ]
+    },
+    {
+        "id": "it-power-bi",
+        "level": "it",
+        "icon": "📊",
+        "title": "Power BI",
+        "blurb": "DAX, Power Query, semantic models, row-level security, deployment pipelines, workspace administration.",
+        "syllabus": [
+            "Power BI Desktop fundamentals and data import",
+            "Power Query for data shaping and transformation",
+            "DAX formulas and calculated measures",
+            "Building semantic models and relationships",
+            "Row-level security and access control",
+            "Interactive dashboards and report design",
+            "Publishing and deployment pipelines",
+            "Workspace and tenant administration"
+        ]
+    },
+    {
+        "id": "it-sql-advanced",
+        "level": "it",
+        "icon": "💾",
+        "title": "SQL (Advanced)",
+        "blurb": "CTEs, window functions, stored procedures, query optimisation across PostgreSQL, MySQL, SQL Server, AWS Athena.",
+        "syllabus": [
+            "Core SQL refresher: joins, aggregation, subqueries",
+            "Common Table Expressions (CTEs)",
+            "Window functions for analytics",
+            "Writing and optimising stored procedures",
+            "Query performance tuning and indexing",
+            "Working across PostgreSQL, MySQL and SQL Server",
+            "Querying data in AWS Athena",
+            "Real-world query optimisation case studies"
+        ]
+    },
+    {
+        "id": "it-cloud-platforms",
+        "level": "it",
+        "icon": "☁️",
+        "title": "Cloud Platforms",
+        "blurb": "Azure, Google Cloud, AWS - cloud-native data querying, storage, and data engineering services.",
+        "syllabus": [
+            "Cloud fundamentals: compute, storage, networking",
+            "Introduction to Azure for data workloads",
+            "Introduction to Google Cloud Platform",
+            "Introduction to AWS for data engineering",
+            "Cloud-native data storage services",
+            "Cloud-native data querying and warehousing",
+            "Setting up and securing cloud data pipelines",
+            "Choosing the right cloud service for a use case"
+        ]
+    },
+    {
+        "id": "it-python",
+        "level": "it",
+        "icon": "🐍",
+        "title": "Python",
+        "blurb": "Pandas, NumPy, pipeline scripting, data transformation, automation, REST API development.",
+        "syllabus": [
+            "Python fundamentals for data work",
+            "Data manipulation with Pandas",
+            "Numerical computing with NumPy",
+            "Building and scripting data pipelines",
+            "Data cleaning and transformation techniques",
+            "Automating repetitive tasks with Python",
+            "Building REST APIs",
+            "Testing and debugging Python scripts"
+        ]
+    },
+    {
+        "id": "it-data-modelling",
+        "level": "it",
+        "icon": "📈",
+        "title": "Data Modelling",
+        "blurb": "Star schema, fact/dimension design, semantic layers, relationship management, performance tuning.",
+        "syllabus": [
+            "Introduction to dimensional modelling",
+            "Star schema vs snowflake schema",
+            "Fact and dimension table design",
+            "Building semantic layers for reporting",
+            "Managing relationships between tables",
+            "Slowly changing dimensions",
+            "Performance tuning for large models",
+            "Documenting and maintaining data models"
+        ]
+    },
+    {
+        "id": "it-fastapi",
+        "level": "it",
+        "icon": "⚡",
+        "title": "FastAPI",
+        "blurb": "Modern REST API development, async programming, data validation, automatic documentation.",
+        "syllabus": [
+            "FastAPI fundamentals and project setup",
+            "Building REST endpoints",
+            "Async programming in Python",
+            "Request/response data validation with Pydantic",
+            "Automatic interactive API documentation",
+            "Authentication and authorization basics",
+            "Connecting FastAPI to a database",
+            "Deploying a FastAPI application"
+        ]
+    },
+    {
+        "id": "it-github",
+        "level": "it",
+        "icon": "🔀",
+        "title": "GitHub",
+        "blurb": "Version control, branching strategy, pull requests, repository management for data workflows.",
+        "syllabus": [
+            "Git and GitHub fundamentals",
+            "Branching strategies for team projects",
+            "Creating and reviewing pull requests",
+            "Resolving merge conflicts",
+            "Repository structure for data workflows",
+            "Using GitHub Actions for automation",
+            "Managing issues and project boards",
+            "Best practices for commit history"
+        ]
+    },
+    {
+        "id": "it-agile-data-governance",
+        "level": "it",
+        "icon": "👥",
+        "title": "Agile & Data Governance",
+        "blurb": "Scrum ceremonies, sprint planning, GDPR compliance, data quality validation, audit trails.",
+        "syllabus": [
+            "Agile fundamentals and the Scrum framework",
+            "Sprint planning and backlog management",
+            "Daily standups and retrospectives",
+            "Introduction to data governance",
+            "GDPR compliance essentials",
+            "Data quality validation processes",
+            "Maintaining audit trails",
+            "Balancing agile delivery with governance requirements"
+        ]
+    },
+    {
+        "id": "it-nagios-xi",
+        "level": "it",
+        "icon": "🛰️",
+        "title": "Nagios XI",
+        "blurb": "Enterprise infrastructure monitoring - install, configure, dashboard, alerting, and capacity planning.",
+        "syllabus": [
+            "Introduction to Nagios XI",
+            "Nagios XI architecture",
+            "Installing and configuring Nagios XI",
+            "Nagios XI dashboard",
+            "Monitoring hosts and services",
+            "Monitoring with Nagios plugins",
+            "Remote monitoring",
+            "Notifications and alerts",
+            "Reporting in Nagios XI",
+            "Capacity planning",
+            "Graphing and visualisations",
+            "Advanced configuration",
+            "User management and security",
+            "Integrating Nagios XI with third-party tools",
+            "High availability and failover",
+            "Troubleshooting and maintenance",
+            "Automation with Nagios XI",
+            "Best practices for monitoring with Nagios XI"
+        ]
+    },
+    {
+        "id": "it-nagios-log-server",
+        "level": "it",
+        "icon": "📜",
+        "title": "Nagios Log Server",
+        "blurb": "Centralised log collection, searching, dashboards, alerting, and compliance monitoring at scale.",
+        "syllabus": [
+            "Introduction to Nagios Log Server",
+            "Nagios Log Server architecture",
+            "Installing Nagios Log Server",
+            "Configuring data sources for log collection",
+            "Centralised log collection",
+            "Searching and analysing logs",
+            "Creating and customising dashboards",
+            "Alerts and notifications",
+            "Log retention and archiving",
+            "Reporting in Nagios Log Server",
+            "Security and compliance monitoring",
+            "Performance tuning and optimisation",
+            "High availability and redundancy",
+            "User management and role-based access control (RBAC)",
+            "Integration with other tools",
+            "Automation and API usage",
+            "Troubleshooting and maintenance"
+        ]
+    },
+    {
+        "id": "it-nagios-network-analyzer",
+        "level": "it",
+        "icon": "🌐",
+        "title": "Nagios Network Analyzer",
+        "blurb": "Network traffic analysis, visualisation, security monitoring, and performance tuning.",
+        "syllabus": [
+            "Introduction to Nagios Network Analyzer",
+            "Nagios Network Analyzer architecture",
+            "Installation and configuration",
+            "Configuring network traffic sources",
+            "Understanding probes and network data collection",
+            "Traffic analysis and visualisation",
+            "Filtering and querying Network Analyzer",
+            "Network security monitoring",
+            "Notifications and alerts",
+            "Reporting in Nagios Network Analyzer",
+            "Integrating with Nagios XI",
+            "Performance tuning and optimisation",
+            "High availability and failover setup",
+            "User management and security",
+            "Automation with Nagios Network Analyzer",
+            "Best practices for network traffic monitoring"
+        ]
+    },
+    {
+        "id": "it-ubuntu-systems-administrator-usa",
+        "level": "it",
+        "icon": "🖧",
+        "title": "Ubuntu Systems Administrator (USA)",
+        "blurb": "Filesystems, system resources, security, networking, and application management on Ubuntu Desktop.",
+        "syllabus": [
+            "Navigating files and filesystems",
+            "Navigating and manipulating directories and files via the terminal",
+            "Searching, comparing and modifying files with regex, pipes and redirection",
+            "Managing system resources",
+            "Locating system logs and configuring log rotation",
+            "Working with disk partitions and filesystems (fdisk, fsck, parted)",
+            "Crontab format and scheduling",
+            "Interpreting system logs during troubleshooting",
+            "Securing filesystem access",
+            "Creating and managing SSH keys",
+            "System-wide and user-specific security settings",
+            "Password complexity and expiry rules",
+            "Interpreting sudo configuration policies",
+            "Managing user and group accounts, access and membership",
+            "Managing directory and file ownership and access",
+            "Networking configuration",
+            "Layer 2 networking: MAC addresses, ARP resolution, broadcast/multicast",
+            "Open-source community concepts: LTS release cycles and versioning",
+            "The Ubuntu community and its governance",
+            "Interpreting common open-source licenses",
+            "Installing Ubuntu Desktop",
+            "Fixing boot issues (GRUB2, Initramfs)",
+            "Upgrading Ubuntu LTS releases",
+            "Creating a bootable USB drive for Ubuntu",
+            "Creating and managing LVM volumes, filesystems and snapshots",
+            "Managing applications: listing and upgrading packages",
+            "Deb vs snap packages",
+            "Installing packages from multiple sources",
+            "Finding and interpreting package descriptions",
+            "Managing package updates (apt-get, unattended upgrades, Synaptic, Aptitude)",
+            "Securing desktop systems: PKI components and use-cases",
+            "Assigning permissions to directories using ACL attributes"
+        ]
+    },
+    {
+        "id": "it-ubuntu-server-professional-usp",
+        "level": "it",
+        "icon": "🗄️",
+        "title": "Ubuntu Server Professional (USP)",
+        "blurb": "Deploying, securing, and monitoring production Ubuntu servers - services, containers, and automation.",
+        "syllabus": [
+            "Configuring servers and services via systemd",
+            "Automated remote backups and restores (systemd timers, cron)",
+            "Setting up a fileserver with NFS or Samba",
+            "Setting up a web application with Apache/Nginx and MySQL, PostgreSQL or MongoDB",
+            "Deploying Ubuntu Server with various installation methods",
+            "Validating a system against deployment requirements",
+            "Booting into single-user mode",
+            "Configuring remote SSH access",
+            "Regular vs system users",
+            "Installing and configuring a firewall with ufw",
+            "Identifying and managing system processes and services",
+            "Listing running, disabled and inactive systemd units",
+            "Writing and maintaining automation scripts in Bash or Python with git",
+            "Using automation tools such as cloud-init and Ansible",
+            "Applying system updates",
+            "Managing containerised web and database apps with Docker or LXD",
+            "Provisioning virtualised environments with virsh, virt-manager or LXD",
+            "Analysing the impact of configuration on compute and network performance",
+            "Troubleshooting with tcpdump, dig, ss and ip",
+            "Responding to real-time system degradation from resource contention",
+            "Monitoring and automatically detecting connectivity and load issues"
+        ]
+    },
+    {
+        "id": "gcse-computer-science-aqa",
+        "level": "gcse",
+        "icon": "💻",
+        "title": "Computer Science (AQA)",
+        "blurb": "AQA 8525 specification - algorithms, Python programming, and computer systems.",
+        "syllabus": [
+            "Fundamentals of algorithms",
+            "Programming fundamentals in Python",
+            "Data representation: binary, hex, images, sound",
+            "Computer systems: CPU, memory, storage",
+            "Networks and topologies",
+            "Cyber security fundamentals",
+            "Databases and SQL basics",
+            "Impact of technology on society, law and ethics",
+            "Non-exam assessment: programming project",
+            "Exam technique for Paper 1 and Paper 2"
+        ]
+    },
+    {
+        "id": "gcse-computer-science-ocr",
+        "level": "gcse",
+        "icon": "💻",
+        "title": "Computer Science (OCR)",
+        "blurb": "OCR J277 specification - systems architecture, networks, and programming.",
+        "syllabus": [
+            "Systems architecture",
+            "Memory and storage",
+            "Networks, connections and protocols",
+            "Network security",
+            "Systems software",
+            "Ethical, legal and environmental impacts",
+            "Algorithms and programming fundamentals",
+            "Programming techniques in Python",
+            "Producing robust programs",
+            "Boolean logic and computational logic",
+            "Exam technique for Paper 1 and Paper 2"
+        ]
+    },
+    {
+        "id": "gcse-computer-science-edexcel",
+        "level": "gcse",
+        "icon": "💻",
+        "title": "Computer Science (Edexcel)",
+        "blurb": "Pearson Edexcel 1CP2 specification - computational thinking and programming.",
+        "syllabus": [
+            "Problem solving with computers",
+            "Computational thinking and algorithms",
+            "Programming in Python",
+            "Data representation",
+            "Computer networks",
+            "Cyber security threats and prevention",
+            "Data structures and databases",
+            "Legal, moral and ethical issues in computing",
+            "Programming project preparation",
+            "Exam technique for both papers"
+        ]
+    },
+    {
+        "id": "gcse-physics",
+        "level": "gcse",
+        "icon": "⚡",
+        "title": "Physics",
+        "blurb": "Energy, electricity, forces, and waves - with full required-practical coverage.",
+        "syllabus": [
+            "Energy stores and transfers",
+            "Electricity and circuits",
+            "Particle model of matter",
+            "Atomic structure and radioactivity",
+            "Forces and motion",
+            "Waves and their properties",
+            "Magnetism and electromagnetism",
+            "Space physics (triple science)",
+            "Required practicals",
+            "Exam technique and calculation questions"
+        ]
+    },
+    {
+        "id": "gcse-biology",
+        "level": "gcse",
+        "icon": "🧬",
+        "title": "Biology",
+        "blurb": "Cells, organisation, inheritance and ecology, with exam-technique for long answers.",
+        "syllabus": [
+            "Cell biology and cell structure",
+            "Organisation: organs and systems",
+            "Infection and response",
+            "Bioenergetics: photosynthesis and respiration",
+            "Homeostasis and response",
+            "Inheritance, variation and evolution",
+            "Ecology and ecosystems",
+            "Required practicals",
+            "Exam technique for extended-response questions"
+        ]
+    },
+    {
+        "id": "gcse-chemistry",
+        "level": "gcse",
+        "icon": "⚗️",
+        "title": "Chemistry",
+        "blurb": "Atomic structure, bonding, reactions, and quantitative chemistry.",
+        "syllabus": [
+            "Atomic structure and the periodic table",
+            "Bonding, structure and properties of matter",
+            "Quantitative chemistry and calculations",
+            "Chemical changes and reactivity",
+            "Energy changes in reactions",
+            "Rates of reaction and equilibrium",
+            "Organic chemistry basics",
+            "Chemical analysis",
+            "Required practicals",
+            "Exam technique and calculation questions"
+        ]
+    },
+    {
+        "id": "gcse-maths",
+        "level": "gcse",
+        "icon": "🔢",
+        "title": "Maths",
+        "blurb": "Foundation and Higher tier algebra, geometry and problem solving.",
+        "syllabus": [
+            "Algebra and equations",
+            "Functions and graphs",
+            "Trigonometry",
+            "Statistics and probability",
+            "Geometry",
+            "Problem-solving"
+        ]
+    },
+    {
+        "id": "gcse-english",
+        "level": "gcse",
+        "icon": "📝",
+        "title": "English",
+        "blurb": "Language analysis, literature texts and essays that hit the mark scheme.",
+        "syllabus": [
+            "Poetry analysis",
+            "Prose and drama",
+            "Language techniques",
+            "Essay structure",
+            "Reading comprehension",
+            "Spoken language"
+        ]
+    },
+    {
+        "id": "alevel-computer-science",
+        "level": "alevel",
+        "icon": "💻",
+        "title": "Computer Science",
+        "blurb": "Advanced programming, data structures, algorithms, and computer architecture.",
+        "syllabus": [
+            "Programming paradigms and advanced Python/Java",
+            "Data structures: stacks, queues, trees, graphs",
+            "Algorithms and complexity (Big O)",
+            "Computer systems architecture",
+            "Databases and advanced SQL",
+            "Networking and the internet",
+            "Functional programming",
+            "Legal, ethical and cultural issues in computing",
+            "Non-exam assessment: programming project",
+            "Exam technique for Paper 1 and Paper 2"
+        ]
+    },
+    {
+        "id": "alevel-it",
+        "level": "alevel",
+        "icon": "🖥️",
+        "title": "IT",
+        "blurb": "Information systems, databases, networking, and systems analysis for organisations.",
+        "syllabus": [
+            "Information systems in organisations",
+            "Database design and management",
+            "Networking and communications",
+            "Systems analysis and design",
+            "Legal and ethical issues in IT",
+            "Project management for IT solutions",
+            "Spreadsheet and data modelling",
+            "Web development fundamentals",
+            "Coursework/project preparation",
+            "Exam technique"
+        ]
+    },
+    {
+        "id": "alevel-biology",
+        "level": "alevel",
+        "icon": "🧬",
+        "title": "Biology",
+        "blurb": "Cell biology, genetics, physiology and ecology, through to A-Level depth and rigour.",
+        "syllabus": [
+            "Cell structure and biological molecules",
+            "Cell membranes and transport",
+            "Enzymes and biochemical reactions",
+            "DNA, genetics and inheritance",
+            "Energy and respiration",
+            "Photosynthesis",
+            "Homeostasis and the nervous system",
+            "Ecology, populations and evolution",
+            "Required practicals and data analysis",
+            "Exam technique for extended-response questions"
+        ]
+    },
+    {
+        "id": "alevel-chemistry",
+        "level": "alevel",
+        "icon": "⚗️",
+        "title": "Chemistry",
+        "blurb": "Physical, inorganic and organic chemistry at advanced level.",
+        "syllabus": [
+            "Atomic structure and periodicity",
+            "Bonding, structure and properties",
+            "States of matter and solutions",
+            "Thermodynamics and kinetics",
+            "Equilibrium and acid-base reactions",
+            "Redox reactions and electrochemistry",
+            "Transition metals and complexes",
+            "Organic chemistry: nomenclature and mechanisms",
+            "Organic synthesis and analysis",
+            "Spectroscopy and practical skills"
+        ]
+    },
+    {
+        "id": "alevel-physics",
+        "level": "alevel",
+        "icon": "⚡",
+        "title": "Physics",
+        "blurb": "Mechanics, thermodynamics, waves, electricity and modern physics at advanced level.",
+        "syllabus": [
+            "Measurement and uncertainty",
+            "Kinematics and dynamics",
+            "Forces, energy and momentum",
+            "Thermodynamics and gases",
+            "Waves and sound",
+            "Electricity and magnetism",
+            "Electromagnetic induction",
+            "Quantum physics and relativity",
+            "Astrophysics",
+            "Practical skills and data analysis"
+        ]
+    },
+    {
+        "id": "alevel-maths",
+        "level": "alevel",
+        "icon": "🔢",
+        "title": "Maths",
+        "blurb": "Pure maths, statistics and mechanics for advanced learners.",
+        "syllabus": [
+            "Proof and mathematical reasoning",
+            "Algebra and functions",
+            "Sequences and series",
+            "Trigonometry and circular measure",
+            "Exponentials and logarithms",
+            "Calculus: differentiation",
+            "Calculus: integration",
+            "Numerical methods",
+            "Statistics and probability",
+            "Mechanics: motion and forces"
+        ]
+    },
+    {
+        "id": "alevel-further-maths",
+        "level": "alevel",
+        "icon": "➕",
+        "title": "Further Maths",
+        "blurb": "Advanced pure mathematics, matrices, complex numbers and proof.",
+        "syllabus": [
+            "Complex numbers and argand diagrams",
+            "Matrices and transformations",
+            "Systems of linear equations",
+            "Vectors and 3D geometry",
+            "Further calculus and differential equations",
+            "Series and summation",
+            "Mathematical proof and logic",
+            "Graph theory and networks",
+            "Polar coordinates",
+            "Hyperbolic functions"
+        ]
+    },
+    {
+        "id": "y59-maths",
+        "level": "y59",
+        "icon": "🔢",
+        "title": "Maths",
+        "blurb": "Number, algebra, geometry, statistics and reasoning for UK primary and early secondary.",
+        "syllabus": [
+            "Number and place value",
+            "Addition and subtraction",
+            "Multiplication and division",
+            "Fractions, decimals and percentages",
+            "Algebra and algebraic reasoning",
+            "Ratio and proportion",
+            "Geometry: shape and space",
+            "Measurement and units",
+            "Statistics and data handling",
+            "Mathematical reasoning and problem-solving"
+        ]
+    },
+    {
+        "id": "y59-science",
+        "level": "y59",
+        "icon": "🔬",
+        "title": "Science",
+        "blurb": "Biology, chemistry and physics for UK primary and early secondary: life, matter and forces.",
+        "syllabus": [
+            "Life processes and living things",
+            "Materials and their properties",
+            "Physical processes: forces and motion",
+            "Earth and space",
+            "Cells and organisation",
+            "Nutrition and digestion",
+            "Respiration and photosynthesis",
+            "States of matter",
+            "Chemical reactions",
+            "Energy transfer and waves"
+        ]
+    },
+    {
+        "id": "y59-english",
+        "level": "y59",
+        "icon": "📖",
+        "title": "English",
+        "blurb": "Reading, writing, speaking and listening for UK primary and early secondary.",
+        "syllabus": [
+            "Phonics and word reading",
+            "Comprehension of fiction and non-fiction",
+            "Composition and writing skills",
+            "Grammar, punctuation and spelling",
+            "Speaking and listening",
+            "Oracy and presentation",
+            "Poetry and verse",
+            "Drama and performance",
+            "Author study",
+            "Media and digital literacy"
+        ]
+    },
+    {
+        "id": "cbse-computer-science-class-12",
+        "level": "cbse",
+        "icon": "💻",
+        "title": "Computer Science (Class 12)",
+        "blurb": "Python, data structures, databases and networking for CBSE board exams.",
+        "syllabus": [
+            "Python revision and advanced concepts",
+            "Data structures: stacks, queues",
+            "File handling in Python",
+            "Database concepts and SQL (MySQL)",
+            "Computer networks",
+            "Boolean algebra and logic",
+            "Python-database connectivity",
+            "Practical file preparation",
+            "Exam technique for board exams"
+        ]
+    },
+    {
+        "id": "cbse-informatics-practices-class-12",
+        "level": "cbse",
+        "icon": "📊",
+        "title": "Informatics Practices (Class 12)",
+        "blurb": "Data handling with Pandas, visualisation, SQL, and data-driven decision making.",
+        "syllabus": [
+            "Data handling using Pandas and NumPy",
+            "Data visualisation with Matplotlib",
+            "Database query language (SQL)",
+            "Data-driven decision making",
+            "Introduction to big data and data science concepts",
+            "Societal impacts of IT",
+            "Practical file preparation",
+            "Exam technique for board exams"
+        ]
+    },
+    {
+        "id": "cbse-computer-science-class-11",
+        "level": "cbse",
+        "icon": "💻",
+        "title": "Computer Science (Class 11)",
+        "blurb": "Python fundamentals, flow of control, and an introduction to databases.",
+        "syllabus": [
+            "Computer fundamentals and system software",
+            "Introduction to Python programming",
+            "Flow of control and conditional statements",
+            "Lists, tuples and dictionaries in Python",
+            "String manipulation",
+            "Introduction to databases",
+            "Society, law and ethics in computing",
+            "Practical file preparation"
+        ]
+    },
+    {
+        "id": "cbse-informatics-practices-class-11",
+        "level": "cbse",
+        "icon": "📊",
+        "title": "Informatics Practices (Class 11)",
+        "blurb": "Computer basics, Python, data handling and an introduction to SQL.",
+        "syllabus": [
+            "Computer system basics",
+            "Introduction to Python",
+            "Data handling with Python",
+            "Database concepts",
+            "Introduction to SQL",
+            "Society, law and ethics",
+            "Practical file preparation"
+        ]
+    }
 ];
 
 function courseUrl(id) {
@@ -255,8 +871,8 @@ function initCourseDetail() {
             '<div class="detail-main">' +
                 '<h2 class="left">What you will cover</h2>' +
                 '<ul class="syllabus">' + c.syllabus.map(s => '<li>' + s + '</li>').join('') + '</ul>' +
-                '<h2 class="left">What you will be able to do</h2>' +
-                '<ul class="syllabus">' + c.outcomes.map(s => '<li>' + s + '</li>').join('') + '</ul>' +
+                (c.outcomes ? '<h2 class="left">What you will be able to do</h2>' +
+                '<ul class="syllabus">' + c.outcomes.map(s => '<li>' + s + '</li>').join('') + '</ul>' : '') +
             '</div>' +
             '<aside class="detail-side">' +
                 '<h3>At a glance</h3>' +
