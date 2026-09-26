@@ -32,6 +32,7 @@
     <!-- Subject Selection -->
     <section class="booking-subjects">
         <div class="container">
+            <div id="course-banner" class="course-banner" hidden></div>
             <h2>Step 1: Select Your Subject</h2>
             <div class="subjects-grid">
                 <div class="subject-card" data-subject="Maths">
@@ -70,6 +71,7 @@
 
             <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <input type="hidden" name="subject" id="selected-subject" value="">
+                <input type="hidden" name="course" id="selected-course" value="">
 
                 <div class="form-group">
                     <label for="name">Your Full Name *</label>
@@ -218,5 +220,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/courses.js"></script>
 </body>
 </html>
