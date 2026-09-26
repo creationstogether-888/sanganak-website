@@ -1237,3 +1237,9 @@ h2.left {
         grid-template-columns: 1fr;
     }
 }
+
+a.course-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
