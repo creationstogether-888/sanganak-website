@@ -1340,3 +1340,8 @@ a.course-card {
         align-items: flex-start;
     }
 }
+
+a.tab-btn {
+    display: inline-block;
+    text-decoration: none;
+}
