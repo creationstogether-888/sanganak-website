@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs - SANGANAK</title>
+    <meta name="description" content="SANGANAK job portal: open IT roles, CV submission for candidates and hiring support for employers.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">SANGANAK</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="training.html">Courses</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">SANGANAK Jobs</span>
+            <h1>Getting hired shouldn't feel like a second job.</h1>
+            <p>We connect employers with skilled, screened IT talent, and help candidates get their CV in front of a real person who reads it. Fewer dead ends, faster answers.</p>
+            <div class="hero-actions">
+                <a href="#employers" class="btn btn-primary">I'm hiring &rarr;</a>
+                <a href="#candidates" class="btn btn-outline">I'm looking for work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat"><h3>Free</h3><p>For candidates, always</p></div>
+                <div class="stat"><h3>1 day</h3><p>Typical reply from a real person</p></div>
+                <div class="stat"><h3>Screened</h3><p>Skills checked before any introduction</p></div>
+                <div class="stat"><h3>IT focus</h3><p>Data, cloud, software and support roles</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What we do -->
+    <section class="why-us">
+        <div class="container">
+            <span class="eyebrow dark">What we do</span>
+            <h2>Everything hiring needs, minus the busywork.</h2>
+            <div class="features-grid four">
+                <div class="feature">
+                    <div class="feature-icon">🔎</div>
+                    <h3>Specialist Talent Search</h3>
+                    <p>We focus on IT roles and speak the language, so you are not explaining what Power BI or a cloud engineer does.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Considered Matching</h3>
+                    <p>Candidates are matched to what a role actually needs, not filtered by keywords. You review a short list, not a pile.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Support From Brief to Offer</h3>
+                    <p>One point of contact handles interviews, feedback and next steps so nothing stalls waiting on an email.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Checked and Ready</h3>
+                    <p>Candidates are screened on the basics and their skills before an employer ever sees their profile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works alternate">
+        <div class="container">
+            <span class="eyebrow dark">How it works</span>
+            <h2>Three steps. No paperwork mountain.</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Tell us what you need</h3>
+                    <p>Employers share the role and what good looks like. Candidates share their skills and the work they want. A short conversation, not a long form.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>We match and introduce</h3>
+                    <p>We compare real requirements against real skills and make introductions only where there is a genuine fit.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>You move forward with confidence</h3>
+                    <p>Interviews and feedback are coordinated for you, so the only decision left is whether to hire or accept.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open roles -->
+    <section id="roles">
+        <div class="container">
+            <span class="eyebrow dark">Open roles</span>
+            <h2>Current opportunities.</h2>
+            <div class="role-filters" id="role-filters" role="group" aria-label="Filter roles"></div>
+            <div class="roles-list" id="roles-list"></div>
+            <p class="section-intro">Don't see the right role? Send your CV below and we will match you when something suitable comes in.</p>
+        </div>
+    </section>
+
+    <!-- Candidates -->
+    <section class="alternate" id="candidates">
+        <div class="container">
+            <span class="eyebrow dark green">For candidates</span>
+            <h2>Put your CV in front of real recruiters.</h2>
+            <p class="section-intro">Share your details and a link to your CV. A person reads every submission and gets back to you within one working day.</p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="type" value="Candidate">
+                <div class="form-group">
+                    <label for="c-name">Full name *</label>
+                    <input type="text" id="c-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-email">Email *</label>
+                    <input type="email" id="c-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-phone">Phone (optional)</label>
+                    <input type="tel" id="c-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="c-role">Role you are interested in *</label>
+                    <select id="c-role" name="role" required>
+                        <option value="">Select a role</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="c-cv">Link to your CV or LinkedIn *</label>
+                    <input type="url" id="c-cv" name="cv_link" placeholder="https://" required>
+                </div>
+                <div class="form-group">
+                    <label for="c-message">Anything else we should know (optional)</label>
+                    <textarea id="c-message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Submit my CV</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Employers -->
+    <section id="employers">
+        <div class="container">
+            <span class="eyebrow dark">For employers</span>
+            <h2>Let's find your next hire.</h2>
+            <p class="section-intro">Tell us what you are hiring for. A real person reads every message and follows up within one working day.</p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="hidden" name="type" value="Employer">
+                <div class="form-group">
+                    <label for="e-name">Your name *</label>
+                    <input type="text" id="e-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="e-email">Work email *</label>
+                    <input type="email" id="e-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="e-company">Company (optional)</label>
+                    <input type="text" id="e-company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="e-message">What are you hiring for? *</label>
+                    <textarea id="e-message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Send message</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Want to build the skills first?</h2>
+            <p>Our IT courses prepare you for the roles listed here</p>
+            <a href="training.html#it" class="btn btn-primary btn-large">See IT Training &rarr;</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SANGANAK</h4>
+                    <p>Expert tuition, IT training and jobs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="training.html">Courses</a></li>
+                        <li><a href="jobs.html">Jobs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@sanganak.co.uk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SANGANAK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+</html>
