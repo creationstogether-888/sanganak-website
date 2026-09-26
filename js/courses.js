@@ -146,14 +146,77 @@ function tileHtml(c) {
     '</a>';
 }
 
-// Level pages (it-training, gcse, a-level, years-5-9) list their courses
-const LEVEL_PAGES = { it: 'it-training.html', gcse: 'gcse.html', alevel: 'a-level.html', y59: 'years-5-9.html' };
-
-function initLevelPage() {
-    const root = document.getElementById('level-courses');
+// Tabbed course browser: used on the homepage and the courses page
+function initCourseTabs() {
+    const root = document.getElementById('course-tabs');
     if (!root) return;
-    const courses = COURSES.filter(c => c.level === root.dataset.level);
-    root.innerHTML = '<div class="tile-grid">' + courses.map(tileHtml).join('') + '</div>';
+
+    const keys = Object.keys(LEVELS);
+    const tablist = root.querySelector('.tab-buttons');
+    const panels = root.querySelector('.tab-panels');
+
+    keys.forEach((key, i) => {
+        const level = LEVELS[key];
+        const courses = COURSES.filter(c => c.level === key);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tab-btn';
+        btn.id = 'tab-btn-' + key;
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-controls', 'tab-' + key);
+        btn.dataset.tab = key;
+        btn.textContent = level.tab;
+        tablist.appendChild(btn);
+
+        const panel = document.createElement('div');
+        panel.className = 'tab-content';
+        panel.id = 'tab-' + key;
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', btn.id);
+        panel.innerHTML =
+            '<h3>' + level.label + '</h3>' +
+            '<p class="tab-intro">' + level.intro + '</p>' +
+            '<div class="tile-grid">' + courses.map(tileHtml).join('') + '</div>';
+        panels.appendChild(panel);
+    });
+
+    function show(key, updateHash) {
+        if (!LEVELS[key]) key = keys[0];
+        root.querySelectorAll('.tab-btn').forEach(b => {
+            const on = b.dataset.tab === key;
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-selected', on ? 'true' : 'false');
+            b.tabIndex = on ? 0 : -1;
+        });
+        root.querySelectorAll('.tab-content').forEach(p => {
+            p.classList.toggle('active', p.id === 'tab-' + key);
+        });
+        if (updateHash && history.replaceState) {
+            history.replaceState(null, '', '#' + key);
+        }
+    }
+
+    tablist.addEventListener('click', e => {
+        const b = e.target.closest('.tab-btn');
+        if (b) show(b.dataset.tab, true);
+    });
+
+    tablist.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const current = keys.indexOf(root.querySelector('.tab-btn.active').dataset.tab);
+        const next = (current + (e.key === 'ArrowRight' ? 1 : keys.length - 1)) % keys.length;
+        show(keys[next], true);
+        document.getElementById('tab-btn-' + keys[next]).focus();
+    });
+
+    // Links like training.html#gcse open the matching tab
+    function fromHash() {
+        const key = location.hash.replace('#', '');
+        show(LEVELS[key] ? key : keys[0], false);
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
 }
 
 // course.html?id=... renders one course
@@ -168,7 +231,7 @@ function initCourseDetail() {
         root.innerHTML =
             '<div class="container narrow"><h1>Course not found</h1>' +
             '<p>We could not find that course. Browse everything we teach on the courses page.</p>' +
-            '<a class="btn btn-secondary" href="it-training.html">See all courses</a></div>';
+            '<a class="btn btn-secondary" href="training.html">See all courses</a></div>';
         document.title = 'Course not found - SANGANAK';
         return;
     }
@@ -181,7 +244,7 @@ function initCourseDetail() {
 
     root.innerHTML =
         '<section class="course-hero"><div class="container">' +
-            '<a class="crumb" href="' + LEVEL_PAGES[c.level] + '">&larr; ' + level.label + ' courses</a>' +
+            '<a class="crumb" href="training.html#' + c.level + '">&larr; ' + level.label + ' courses</a>' +
             '<span class="course-hero-icon" aria-hidden="true">' + c.icon + '</span>' +
             '<h1>' + level.label + ' ' + c.title + '</h1>' +
             '<p>' + c.blurb + '</p>' +
@@ -229,12 +292,12 @@ function initBookingPrefill() {
     if (courseInput) courseInput.value = c.id;
 
     banner.hidden = false;
-    banner.innerHTML = 'You are booking: <strong></strong> <a href="' + LEVEL_PAGES[c.level] + '">Change course</a>';
+    banner.innerHTML = 'You are booking: <strong></strong> <a href="training.html#' + c.level + '">Change course</a>';
     banner.querySelector('strong').textContent = label;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    initLevelPage();
+    initCourseTabs();
     initCourseDetail();
     initBookingPrefill();
 });
