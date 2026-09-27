@@ -40,142 +40,6 @@ const LEVELS = {
 
 const COURSES = [
     {
-        "id": "it-ai-data-engineering-analyst",
-        "level": "it",
-        "icon": "🧠",
-        "title": "AI - Data Engineering Analyst",
-        "blurb": "Data pipelines, ETL processes, database management, data quality, and visualization for business intelligence.",
-        "syllabus": [
-            "Data pipeline design and ETL fundamentals",
-            "Extracting, transforming and loading data from multiple sources",
-            "Database design and management for analytics",
-            "Data quality checks and validation",
-            "Data visualisation for business intelligence",
-            "Automating recurring data workflows",
-            "Working with structured and unstructured data",
-            "Introduction to AI-assisted data analysis"
-        ]
-    },
-    {
-        "id": "it-power-bi",
-        "level": "it",
-        "icon": "📊",
-        "title": "Power BI",
-        "blurb": "DAX, Power Query, semantic models, row-level security, deployment pipelines, workspace administration.",
-        "syllabus": [
-            "Power BI Desktop fundamentals and data import",
-            "Power Query for data shaping and transformation",
-            "DAX formulas and calculated measures",
-            "Building semantic models and relationships",
-            "Row-level security and access control",
-            "Interactive dashboards and report design",
-            "Publishing and deployment pipelines",
-            "Workspace and tenant administration"
-        ]
-    },
-    {
-        "id": "it-sql-advanced",
-        "level": "it",
-        "icon": "💾",
-        "title": "SQL (Advanced)",
-        "blurb": "CTEs, window functions, stored procedures, query optimisation across PostgreSQL, MySQL, SQL Server, AWS Athena.",
-        "syllabus": [
-            "Core SQL refresher: joins, aggregation, subqueries",
-            "Common Table Expressions (CTEs)",
-            "Window functions for analytics",
-            "Writing and optimising stored procedures",
-            "Query performance tuning and indexing",
-            "Working across PostgreSQL, MySQL and SQL Server",
-            "Querying data in AWS Athena",
-            "Real-world query optimisation case studies"
-        ]
-    },
-    {
-        "id": "it-cloud-platforms",
-        "level": "it",
-        "icon": "☁️",
-        "title": "Cloud Platforms",
-        "blurb": "Azure, Google Cloud, AWS - cloud-native data querying, storage, and data engineering services.",
-        "syllabus": [
-            "Cloud fundamentals: compute, storage, networking",
-            "Introduction to Azure for data workloads",
-            "Introduction to Google Cloud Platform",
-            "Introduction to AWS for data engineering",
-            "Cloud-native data storage services",
-            "Cloud-native data querying and warehousing",
-            "Setting up and securing cloud data pipelines",
-            "Choosing the right cloud service for a use case"
-        ]
-    },
-    {
-        "id": "it-python",
-        "level": "it",
-        "icon": "🐍",
-        "title": "Python",
-        "blurb": "Pandas, NumPy, pipeline scripting, data transformation, automation, REST API development.",
-        "syllabus": [
-            "Python fundamentals for data work",
-            "Data manipulation with Pandas",
-            "Numerical computing with NumPy",
-            "Building and scripting data pipelines",
-            "Data cleaning and transformation techniques",
-            "Automating repetitive tasks with Python",
-            "Building REST APIs",
-            "Testing and debugging Python scripts"
-        ]
-    },
-    {
-        "id": "it-data-modelling",
-        "level": "it",
-        "icon": "📈",
-        "title": "Data Modelling",
-        "blurb": "Star schema, fact/dimension design, semantic layers, relationship management, performance tuning.",
-        "syllabus": [
-            "Introduction to dimensional modelling",
-            "Star schema vs snowflake schema",
-            "Fact and dimension table design",
-            "Building semantic layers for reporting",
-            "Managing relationships between tables",
-            "Slowly changing dimensions",
-            "Performance tuning for large models",
-            "Documenting and maintaining data models"
-        ]
-    },
-    {
-        "id": "it-fastapi",
-        "level": "it",
-        "icon": "⚡",
-        "title": "FastAPI",
-        "blurb": "Modern REST API development, async programming, data validation, automatic documentation.",
-        "syllabus": [
-            "FastAPI fundamentals and project setup",
-            "Building REST endpoints",
-            "Async programming in Python",
-            "Request/response data validation with Pydantic",
-            "Automatic interactive API documentation",
-            "Authentication and authorization basics",
-            "Connecting FastAPI to a database",
-            "Deploying a FastAPI application"
-        ]
-    },
-    {
-        "id": "it-github",
-        "level": "it",
-        "icon": "🔀",
-        "title": "GitHub",
-        "blurb": "Version control, branching strategy, pull requests, repository management for data workflows.",
-        "syllabus": [
-            "Git and GitHub fundamentals",
-            "Branching strategies for team projects",
-            "Creating and reviewing pull requests",
-            "Resolving merge conflicts",
-            "Repository structure for data workflows",
-            "Using GitHub Actions for automation",
-            "Managing issues and project boards",
-            "Best practices for commit history"
-        ]
-    },
-    {
         "id": "it-agile-data-governance",
         "level": "it",
         "icon": "👥",
@@ -339,6 +203,142 @@ const COURSES = [
             "Troubleshooting with tcpdump, dig, ss and ip",
             "Responding to real-time system degradation from resource contention",
             "Monitoring and automatically detecting connectivity and load issues"
+        ]
+    },
+    {
+        "id": "it-ai-data-engineering-analyst",
+        "level": "it",
+        "icon": "🧠",
+        "title": "AI - Data Engineering Analyst",
+        "blurb": "Data pipelines, ETL processes, database management, data quality, and visualization for business intelligence.",
+        "syllabus": [
+            "Data pipeline design and ETL fundamentals",
+            "Extracting, transforming and loading data from multiple sources",
+            "Database design and management for analytics",
+            "Data quality checks and validation",
+            "Data visualisation for business intelligence",
+            "Automating recurring data workflows",
+            "Working with structured and unstructured data",
+            "Introduction to AI-assisted data analysis"
+        ]
+    },
+    {
+        "id": "it-power-bi",
+        "level": "it",
+        "icon": "📊",
+        "title": "Power BI",
+        "blurb": "DAX, Power Query, semantic models, row-level security, deployment pipelines, workspace administration.",
+        "syllabus": [
+            "Power BI Desktop fundamentals and data import",
+            "Power Query for data shaping and transformation",
+            "DAX formulas and calculated measures",
+            "Building semantic models and relationships",
+            "Row-level security and access control",
+            "Interactive dashboards and report design",
+            "Publishing and deployment pipelines",
+            "Workspace and tenant administration"
+        ]
+    },
+    {
+        "id": "it-sql-advanced",
+        "level": "it",
+        "icon": "💾",
+        "title": "SQL (Advanced)",
+        "blurb": "CTEs, window functions, stored procedures, query optimisation across PostgreSQL, MySQL, SQL Server, AWS Athena.",
+        "syllabus": [
+            "Core SQL refresher: joins, aggregation, subqueries",
+            "Common Table Expressions (CTEs)",
+            "Window functions for analytics",
+            "Writing and optimising stored procedures",
+            "Query performance tuning and indexing",
+            "Working across PostgreSQL, MySQL and SQL Server",
+            "Querying data in AWS Athena",
+            "Real-world query optimisation case studies"
+        ]
+    },
+    {
+        "id": "it-cloud-platforms",
+        "level": "it",
+        "icon": "☁️",
+        "title": "Cloud Platforms",
+        "blurb": "Azure, Google Cloud, AWS - cloud-native data querying, storage, and data engineering services.",
+        "syllabus": [
+            "Cloud fundamentals: compute, storage, networking",
+            "Introduction to Azure for data workloads",
+            "Introduction to Google Cloud Platform",
+            "Introduction to AWS for data engineering",
+            "Cloud-native data storage services",
+            "Cloud-native data querying and warehousing",
+            "Setting up and securing cloud data pipelines",
+            "Choosing the right cloud service for a use case"
+        ]
+    },
+    {
+        "id": "it-python",
+        "level": "it",
+        "icon": "🐍",
+        "title": "Python",
+        "blurb": "Pandas, NumPy, pipeline scripting, data transformation, automation, REST API development.",
+        "syllabus": [
+            "Python fundamentals for data work",
+            "Data manipulation with Pandas",
+            "Numerical computing with NumPy",
+            "Building and scripting data pipelines",
+            "Data cleaning and transformation techniques",
+            "Automating repetitive tasks with Python",
+            "Building REST APIs",
+            "Testing and debugging Python scripts"
+        ]
+    },
+    {
+        "id": "it-data-modelling",
+        "level": "it",
+        "icon": "📈",
+        "title": "Data Modelling",
+        "blurb": "Star schema, fact/dimension design, semantic layers, relationship management, performance tuning.",
+        "syllabus": [
+            "Introduction to dimensional modelling",
+            "Star schema vs snowflake schema",
+            "Fact and dimension table design",
+            "Building semantic layers for reporting",
+            "Managing relationships between tables",
+            "Slowly changing dimensions",
+            "Performance tuning for large models",
+            "Documenting and maintaining data models"
+        ]
+    },
+    {
+        "id": "it-fastapi",
+        "level": "it",
+        "icon": "⚡",
+        "title": "FastAPI",
+        "blurb": "Modern REST API development, async programming, data validation, automatic documentation.",
+        "syllabus": [
+            "FastAPI fundamentals and project setup",
+            "Building REST endpoints",
+            "Async programming in Python",
+            "Request/response data validation with Pydantic",
+            "Automatic interactive API documentation",
+            "Authentication and authorization basics",
+            "Connecting FastAPI to a database",
+            "Deploying a FastAPI application"
+        ]
+    },
+    {
+        "id": "it-github",
+        "level": "it",
+        "icon": "🔀",
+        "title": "GitHub",
+        "blurb": "Version control, branching strategy, pull requests, repository management for data workflows.",
+        "syllabus": [
+            "Git and GitHub fundamentals",
+            "Branching strategies for team projects",
+            "Creating and reviewing pull requests",
+            "Resolving merge conflicts",
+            "Repository structure for data workflows",
+            "Using GitHub Actions for automation",
+            "Managing issues and project boards",
+            "Best practices for commit history"
         ]
     },
     {
