@@ -456,36 +456,6 @@ const COURSES = [
         ]
     },
     {
-        "id": "gcse-maths",
-        "level": "gcse",
-        "icon": "🔢",
-        "title": "Maths",
-        "blurb": "Foundation and Higher tier algebra, geometry and problem solving.",
-        "syllabus": [
-            "Algebra and equations",
-            "Functions and graphs",
-            "Trigonometry",
-            "Statistics and probability",
-            "Geometry",
-            "Problem-solving"
-        ]
-    },
-    {
-        "id": "gcse-english",
-        "level": "gcse",
-        "icon": "📝",
-        "title": "English",
-        "blurb": "Language analysis, literature texts and essays that hit the mark scheme.",
-        "syllabus": [
-            "Poetry analysis",
-            "Prose and drama",
-            "Language techniques",
-            "Essay structure",
-            "Reading comprehension",
-            "Spoken language"
-        ]
-    },
-    {
         "id": "alevel-computer-science",
         "level": "alevel",
         "icon": "💻",
@@ -521,101 +491,6 @@ const COURSES = [
             "Web development fundamentals",
             "Coursework/project preparation",
             "Exam technique"
-        ]
-    },
-    {
-        "id": "alevel-biology",
-        "level": "alevel",
-        "icon": "🧬",
-        "title": "Biology",
-        "blurb": "Cell biology, genetics, physiology and ecology, through to A-Level depth and rigour.",
-        "syllabus": [
-            "Cell structure and biological molecules",
-            "Cell membranes and transport",
-            "Enzymes and biochemical reactions",
-            "DNA, genetics and inheritance",
-            "Energy and respiration",
-            "Photosynthesis",
-            "Homeostasis and the nervous system",
-            "Ecology, populations and evolution",
-            "Required practicals and data analysis",
-            "Exam technique for extended-response questions"
-        ]
-    },
-    {
-        "id": "alevel-chemistry",
-        "level": "alevel",
-        "icon": "⚗️",
-        "title": "Chemistry",
-        "blurb": "Physical, inorganic and organic chemistry at advanced level.",
-        "syllabus": [
-            "Atomic structure and periodicity",
-            "Bonding, structure and properties",
-            "States of matter and solutions",
-            "Thermodynamics and kinetics",
-            "Equilibrium and acid-base reactions",
-            "Redox reactions and electrochemistry",
-            "Transition metals and complexes",
-            "Organic chemistry: nomenclature and mechanisms",
-            "Organic synthesis and analysis",
-            "Spectroscopy and practical skills"
-        ]
-    },
-    {
-        "id": "alevel-physics",
-        "level": "alevel",
-        "icon": "⚡",
-        "title": "Physics",
-        "blurb": "Mechanics, thermodynamics, waves, electricity and modern physics at advanced level.",
-        "syllabus": [
-            "Measurement and uncertainty",
-            "Kinematics and dynamics",
-            "Forces, energy and momentum",
-            "Thermodynamics and gases",
-            "Waves and sound",
-            "Electricity and magnetism",
-            "Electromagnetic induction",
-            "Quantum physics and relativity",
-            "Astrophysics",
-            "Practical skills and data analysis"
-        ]
-    },
-    {
-        "id": "alevel-maths",
-        "level": "alevel",
-        "icon": "🔢",
-        "title": "Maths",
-        "blurb": "Pure maths, statistics and mechanics for advanced learners.",
-        "syllabus": [
-            "Proof and mathematical reasoning",
-            "Algebra and functions",
-            "Sequences and series",
-            "Trigonometry and circular measure",
-            "Exponentials and logarithms",
-            "Calculus: differentiation",
-            "Calculus: integration",
-            "Numerical methods",
-            "Statistics and probability",
-            "Mechanics: motion and forces"
-        ]
-    },
-    {
-        "id": "alevel-further-maths",
-        "level": "alevel",
-        "icon": "➕",
-        "title": "Further Maths",
-        "blurb": "Advanced pure mathematics, matrices, complex numbers and proof.",
-        "syllabus": [
-            "Complex numbers and argand diagrams",
-            "Matrices and transformations",
-            "Systems of linear equations",
-            "Vectors and 3D geometry",
-            "Further calculus and differential equations",
-            "Series and summation",
-            "Mathematical proof and logic",
-            "Graph theory and networks",
-            "Polar coordinates",
-            "Hyperbolic functions"
         ]
     },
     {
