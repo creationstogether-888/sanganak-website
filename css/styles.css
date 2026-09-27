@@ -1928,3 +1928,103 @@ section.alternate,
 .courses-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+/* ===== HOMEPAGE HERO: side cards ===== */
+.hero-split {
+    padding: 80px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr) 250px;
+    gap: 32px;
+    align-items: center;
+}
+
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.glass-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.glass-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 0 22px var(--glow-teal);
+}
+
+.glass-card:focus-visible {
+    outline: 3px solid var(--teal-300);
+    outline-offset: 2px;
+}
+
+.glass-icon {
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.glass-card strong {
+    font-size: 18px;
+}
+
+.glass-card small {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.glass-card em {
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teal-300);
+}
+
+.glass-jobs {
+    padding: 22px;
+    border-color: rgba(94, 234, 212, 0.6);
+    animation: glow-ring-light 3.2s ease-in-out infinite;
+}
+
+.hero-center .hero-subtitle {
+    margin-bottom: 30px;
+}
+
+@keyframes glow-ring-light {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.4); }
+    50% { box-shadow: 0 0 26px 4px rgba(94, 234, 212, 0.35); }
+}
+
+@media (max-width: 1000px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-center { order: -1; }
+
+    .hero-side {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .hero-side .glass-card {
+        flex: 1 1 200px;
+    }
+}
