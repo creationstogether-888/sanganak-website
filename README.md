@@ -169,7 +169,7 @@ This website is the property of SANGANAK. All rights reserved.
 ## Support
 
 For any issues or questions:
-- Email: info@sanganak.co.uk
+- Email: support@samganak.com
 - Contact form: /contact.html
 
 ---
